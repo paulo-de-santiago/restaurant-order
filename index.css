@@ -1,5 +1,30 @@
 body {
     margin: 0;
     font-family: 'Smythe', cursive;
-    
+
+    /* default-state */
+  /*   position: relative; */
+    width: 600px;
+    background: #FFFFFF;
 } 
+
+.header {
+    background-image: url(header-img.png);
+    width: 600px;
+}
+
+
+.restaurant-container {
+    width: 600px;
+  
+} 
+
+.img-header {
+    position: relative;
+    max-width: 100%;
+ 
+} 
+.img-header,
+.div-h {
+    position: absolute;
+}   
