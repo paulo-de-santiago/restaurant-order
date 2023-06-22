@@ -1,30 +1,81 @@
-body {
+html, body {
     margin: 0;
     font-family: 'Smythe', cursive;
 
     /* default-state */
-  /*   position: relative; */
+   /*  position: relative;  */
     width: 600px;
     background: #FFFFFF;
+    text-align: center; 
 } 
 
-.header {
-    background-image: url(header-img.png);
-    width: 600px;
+.container {
+  border-radius: 5px;
+  display: flex; 
+  flex-direction: column;
+  max-width: 600px;
+/*   border: 2px solid saddlebrown; */
+  margin: 45px 45px;
+  padding: 45px;
+  text-align: center;
 }
 
 
-.restaurant-container {
+
+ .header {
     width: 600px;
-  
+    height: 167px;
+    flex-shrink: 0;
+    background: url(header-img.png);
+    background-color: lightgray;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    margin-bottom: 67px;
+    border: 5px solid saddlebrown;
 } 
 
-.img-header {
-    position: relative;
-    max-width: 100%;
- 
-} 
-.img-header,
-.div-h {
-    position: absolute;
-}   
+
+.header-div {
+    display: flex; 
+    flex-direction: column;
+   /*  justify-content: left; */
+   /*  align-items: center; */
+    color: #FFFFFF
+}
+
+.p-one {
+    /* Layout */
+    display: flex;
+    width: 275.459px;
+    height: 8px;
+    flex-direction: column;
+    flex-shrink: 0;
+/*     margin-bottom: 15px; */
+
+    /* Typography */
+
+    color: #FFF;
+    text-align: center;
+    font-size: 39px;
+    font-family: Smythe;
+    line-height: 24px;
+}
+
+.p-two {
+
+    /* Layout */
+    display: flex;
+    width: 275.459px;
+    height: 8px;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    /* Typography */
+    color: #FFF;
+    font-size: 22.422px;
+    font-family: Smythe;
+    line-height: 13.798px;
+        
+
+
+}
