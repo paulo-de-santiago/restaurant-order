@@ -21,3 +21,13 @@ menuArray.forEach(function (price) {
 
   console.log(price.price, priceType);
 });
+
+/* const mainMenu = document.getElementById("main-menu");
+console.log(mainMenu);
+
+function renderStart() {
+    document.getElementById("main-menu")?.innerHTML
+}
+
+renderStart();
+ */
