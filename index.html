@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <html>
   <head>
     <link
@@ -16,6 +18,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/pizza.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="images/pizza.png" />
   </head>
+
   <body>
     <div class="container">
       <header class="header" id="header">
@@ -25,10 +28,29 @@
         </div>
       </header>
 
-      <main>
-        <img scr="/images/pizza.png" alt="Hamburger header background" />
-      </main>
+      <div class="main-menu" id="main-menu">
+        <div class="menu-list" id="menu-list">
+          <div class="menu-item" id="menu-item">
+            <img
+              class="img-layout"
+              src="images/pizza.png"
+              alt="Hamburger header background"
+            />
+
+            <ul class="list" id="list">
+              <li class="item" id="item">Pizza</li>
+              <li class="ingredients" id="ingredients">ingredients</li>
+              <li class="price" id="price">price</li>
+            </ul>
+          </div>
+          <button class="add-btn">
+            <img src="images/add-btn.png" alt="" />
+          </button>
+        </div>
+        <img src="images/divider.png" />
+      </div>
     </div>
+
     <script src="index.js" type="module"></script>
   </body>
 </html>

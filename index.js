@@ -1,8 +1,7 @@
-import { menuArray  } from "/data.js"
-
+// @ts-ignore
+import { menuArray } from "/data.js";
 
 /* console.log(menuArray) */
- 
 
 /* LOOPING ARRAY OF INGREDIENTS */
 /* menuArray.forEach(function(item) {
@@ -17,12 +16,8 @@ import { menuArray  } from "/data.js"
     console.log(itemArray.id)
 })  */
 
-menuArray.forEach(function(price) {
-    let priceType = typeof price.price
-    
-    console.log(price.price, priceType)
- 
-    
-})
+menuArray.forEach(function (price) {
+  let priceType = typeof price.price;
 
-
+  console.log(price.price, priceType);
+});
