@@ -37,6 +37,26 @@ renderStart();
 function getMenuElement() {
   let menuItems = "";
 
+  let menuIngredients = [];
+
+  menuArray.forEach(function (item) {
+    if (item.ingredients.length > 1) {
+      menuIngredients.push(item.ingredients.join(", "));
+    } else if (item.ingredients.length === 1) {
+      menuIngredients.push(item.ingredients[0].split("-"));
+    }
+  });
+  /*   console.log(menuIngredients); */
+
+  /*   menuArray.forEach(function (item) {
+    item.ingredients.forEach(function (ingredient) {
+      if (item.ingredients.length > 1) {
+        menuIngredients.push(ingredient);
+      }
+    });
+  });
+  /*    */
+
   /* Default State */
   menuArray.forEach(function (item) {
     menuItems += `<div class="menu-list" id="menu-list">
@@ -49,7 +69,7 @@ function getMenuElement() {
 
           <ul class="list" id="list">
             <li class="item" id="item">Pizza</li>
-            <li class="ingredients" id="ingredients">${item.ingredients}</li>
+            <li class="ingredients" id="ingredients">${menuIngredients}</li>
             <li class="price" id="price">${item.price}</li>
           </ul>
         </div>
