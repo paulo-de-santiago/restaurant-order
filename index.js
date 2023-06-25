@@ -1,4 +1,6 @@
+// @ts-nocheck
 // @ts-ignore
+/* import func from "joi/lib/types/func"; */
 import { menuArray } from "/data.js";
 
 /* console.log(menuArray) */
@@ -31,3 +33,37 @@ function renderStart() {
 
 renderStart();
  */
+
+function getMenuElement() {
+  let menuItems = "";
+
+  menuArray.forEach(function (item) {
+    menuItems += `<div class="menu-list" id="menu-list">
+        <div class="menu-item" id="menu-item">
+          <img
+            class="img-layout"
+            src="${item.emoji}"
+            alt="Hamburger header background"
+          />
+
+          <ul class="list" id="list">
+            <li class="item" id="item">Pizza</li>
+            <li class="ingredients" id="ingredients">${item.ingredients}</li>
+            <li class="price" id="price">${item.price}</li>
+          </ul>
+        </div>
+        <button class="add-btn">
+          <img src="images/add-btn.png" alt="" />
+        </button>
+      </div>
+      <img class="divider" src="images/divider.png" />`;
+  });
+
+  return menuItems;
+}
+
+function render() {
+  document.getElementById("main-menu").innerHTML = getMenuElement();
+}
+
+render();

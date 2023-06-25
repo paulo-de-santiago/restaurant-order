@@ -98,6 +98,7 @@ html, body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
     margin-bottom: 50px;
    
   
@@ -106,10 +107,31 @@ html, body {
 .menu-item {
     display: flex;
     flex-direction: row;
+    margin: 0;
+    margin-bottom: 0;
+}
+
+.list {
+    margin-top: 0;
+    padding-left: 10px;
+    text-align: justify;
+}
+
+.item {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    position: relative;
+    text-align: center;
 }
 
 .img-layout {
-    opacity: 0.7200000286102295;
+   /*  opacity: 0.7200000286102295; */
+   height: 50px;
+   width: 50px; 
+    
+/*    text-align: center; */
 }
 
 .item {
@@ -117,6 +139,10 @@ html, body {
     font-size: 28px;
     font-family: Smythe;
     line-height: 16.8px;
+}
+
+.divider {
+    margin-bottom: 30px;
 }
 
 .ingredients {
