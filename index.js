@@ -37,6 +37,7 @@ renderStart();
 function getMenuElement() {
   let menuItems = "";
 
+  /* Default State */
   menuArray.forEach(function (item) {
     menuItems += `<div class="menu-list" id="menu-list">
         <div class="menu-item" id="menu-item">
