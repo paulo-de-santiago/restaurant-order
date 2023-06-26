@@ -179,4 +179,59 @@ html, body {
   }
 
 
+  /* Order */
+  .menu-order {
+
+    padding: 0;
+    width: 504px;
+
+
+  }
+
+.div-order-p {
+    display:  flex;
+    justify-content: space-between; 
+    margin-bottom: 20px;
+  
+  } ´
+
+.divider-order {
+
+    border: 2px;
+    width: 504px;
+    height: 2px;
+}
+
+.remove-btn {
+    background-color: #FFF;
+    border: none;
+    color: #BBB;
+    font-size: 12px;
+    font-family: Verdana;
+    line-height: 24px;
+
+}
+
+.purchase-btn {
+    /* Typograhy */
+    color: var(--white, #FFF);
+    font-size: 16px;
+    font-family: Verdana;
+    font-weight: 700;
+    line-height: 24px;
+    /* Layout */
+    border: none;
+    display: flex;
+    width: 508px;
+    padding: 15px;
+    /* padding: 18px 175px 18px 194px; */
+    justify-content: space-around;
+    align-items: center;
+    /* Style */
+    border-radius: 3px;
+    background: #16DB99;
+
+    /* shadow/sm */
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
 
