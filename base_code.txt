@@ -1,0 +1,47 @@
+  /* LOOPING ARRAY OF INGREDIENTS */
+/* menuArray.forEach(function(item) {
+    item.ingredients.forEach(function(ingredient) {
+         console.log(ingredient)
+    })
+   
+}) */
+
+/* Looping through id */
+/* menuArray.forEach(function(itemArray) {
+    console.log(itemArray.id)
+})  */
+
+  
+  
+  
+  
+  
+  /*   menuArray.forEach(function (item) {
+    if (item.ingredients.length > 1) {
+      menuIngredients.push(item.ingredients.join(", "));
+    } else if (item.ingredients.length === 1) {
+      menuIngredients.push(item.ingredients[0].split("-"));
+    }
+  }); */
+  /*   console.log(menuIngredients); */
+
+  /*   menuArray.forEach(function (item) {
+    item.ingredients.forEach(function (ingredient) {
+      if (item.ingredients.length > 1) {
+        menuIngredients.push(ingredient);
+      }
+    });
+  });
+  /*    */
+
+
+
+  /* const mainMenu = document.getElementById("main-menu");
+console.log(mainMenu);
+
+function renderStart() {
+    document.getElementById("main-menu")?.innerHTML
+}
+
+renderStart();
+ */
