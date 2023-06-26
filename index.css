@@ -166,13 +166,17 @@ html, body {
 }
 
 
-.add-btn{
+.plus-btn{
     height: 45px;
     width: 45px;
     background-color: #FFF;
     border: none;
    
 }
+
+.plus-btn:hover {
+    filter: grayscale(100%) sepia(100%);
+  }
 
 
 
