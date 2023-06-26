@@ -2,7 +2,7 @@
 // @ts-ignore
 /* import func from "joi/lib/types/func"; */
 import { menuArray } from "/data.js";
-
+/* <a href='https://dryicons.com/icon/plus-icon-12631'> Icon by Dryicons </a> */
 /* console.log(menuArray) */
 
 /* LOOPING ARRAY OF INGREDIENTS */
@@ -73,9 +73,9 @@ function getMenuElement() {
             <li class="price" id="price">${item.price}</li>
           </ul>
         </div>
-        <button class="add-btn">
-          <img src="images/add-btn.png" alt="" />
-        </button>
+     
+          <img class="add-btn" src="images/plus_icon.svg" alt="" />
+      
       </div>
       <img class="divider" src="images/divider.png" />`;
   });

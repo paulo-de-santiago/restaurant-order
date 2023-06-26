@@ -167,6 +167,8 @@ html, body {
 
 
 .add-btn{
+    height: 45px;
+    width: 45px;
     background-color: #FFF;
     border: none;
    
