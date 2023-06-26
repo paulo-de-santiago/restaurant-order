@@ -37,10 +37,6 @@ function getMenuElement() {
 
   /* Default State */
   menuArray.forEach(function (item, index) {
-    if (item.id === index) {
-      console.log(item.ingredients);
-    }
-
     let menuIngredients = [];
 
     for (let item of menuArray) {
