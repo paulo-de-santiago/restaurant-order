@@ -45,3 +45,10 @@ function renderStart() {
 
 renderStart();
  */
+
+
+ menuArray.forEach(function (price) {
+  let priceType = typeof price.price;
+
+  console.log(price.price, priceType);
+});
