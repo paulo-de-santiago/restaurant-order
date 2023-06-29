@@ -187,10 +187,11 @@ html, body {
 
 
   }
-.div-order {
+/* .div-order {
     display: flex; 
     flex-direction: column;
-}
+    justify-content: start;
+} */
 
 .div-order-p {
     display:  flex;

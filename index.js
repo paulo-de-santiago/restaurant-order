@@ -64,12 +64,12 @@ function getOrderItems() {
     <div class="main-menu menu-order" id="menu-order">
       <h2>Your order</h2>
   
+      
        
-        <div class="div-order-p">
-        <div class="div-order-p div-order" id="div-order"> 
            ${orderAdded}
-          </div> 
-        </div>
+         
+
+      
       </div>
   
         <img id="divider-order" src="images/divider.png"/>
