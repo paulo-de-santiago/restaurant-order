@@ -8,13 +8,9 @@ import { menuArray } from "/data.js";
 document.addEventListener("click", function (e) {
   if (e.target.dataset.item) {
     getItemId(e.target.dataset.item);
-    /*   console.log(e.target.dataset.item);
-    console.log("item"); */
   }
-
-  /*   let target = e.target.dataset;
-  console.log(target); */
 });
+
 let arrayOrder = [];
 function getItemId(itemId) {
   for (let item of menuArray) {
@@ -22,41 +18,74 @@ function getItemId(itemId) {
       arrayOrder.push({ name: item.name, price: item.price, id: item.id });
     }
   }
+  getOrderItems(arrayOrder);
+  return console.log(arrayOrder);
+}
 
+function sumOrderItems() {}
+
+/* To Refactor */
+function getOrderItems() {
   let order = "";
+  let orderAdded = "";
+
   if (arrayOrder.length === 1) {
     arrayOrder.forEach(function (item) {
-      order = ` 
-  <section class="order-section" id="order-section">
-  <div class="main-menu menu-order" id="menu-order">
-    <h2>Your order</h2>
-
-
-      <div class="div-order-p">
-          <div class="item" >${item.name}<button class="remove-btn" id="remove-btn">remove</button></div> 
-          <div class="item">${item.price}</div>
-      </div>
-
-
-      <img id="divider-order" src="images/divider.png"/>
-
-    <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
-
-
-
-    <button class="purchase-btn" id="purchase-btn">Complete Order</button>
-  </div>
-  </section>`;
+      order += `<section class="order-section" id="order-section">
+    <div class="main-menu menu-order" id="menu-order">
+      <h2>Your order</h2>
+  
+  
+        <div class="div-order-p">
+            <div class="item" >${item.name}<button class="remove-btn" id="remove-btn">remove</button></div> 
+            <div class="item">${item.price}</div>
+        </div>
+  
+  
+        <img id="divider-order" src="images/divider.png"/>
+  
+      <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
+  
+  
+  
+      <button class="purchase-btn" id="purchase-btn">Complete Order</button>
+    </div>
+    </section>`;
+    });
+  } else {
+    arrayOrder.forEach(function (item) {
+      orderAdded += `<div class="div-order-p">
+      <div class="item" >${item.name}<button class="remove-btn" id="remove-btn">remove</button></div> 
+      <div class="item">${item.price}</div>
+  </div>`;
     });
 
-    document.getElementById("order-section").innerHTML = order;
-  } else if (arrayOrder.length > 1) {
-    document.querySelector("div-order-p").append("");
+    order += `<section class="order-section" id="order-section">
+    <div class="main-menu menu-order" id="menu-order">
+      <h2>Your order</h2>
+  
+       
+        <div class="div-order-p">
+        <div class="div-order-p div-order" id="div-order"> 
+           ${orderAdded}
+          </div> 
+        </div>
+      </div>
+  
+        <img id="divider-order" src="images/divider.png"/>
+  
+      <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
+  
+  
+  
+      <button class="purchase-btn" id="purchase-btn">Complete Order</button>
+    </div>
+    </section>`;
+    console.log(orderAdded);
   }
-
-  console.log(arrayOrder);
-  /*   render(); */
-  return arrayOrder;
+  document.getElementById("order-section").innerHTML = order;
+  render();
+  return order;
 }
 
 function getMenuElement() {

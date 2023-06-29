@@ -187,6 +187,10 @@ html, body {
 
 
   }
+.div-order {
+    display: flex; 
+    flex-direction: column;
+}
 
 .div-order-p {
     display:  flex;
