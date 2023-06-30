@@ -13,12 +13,14 @@ document.addEventListener("click", function (e) {
 
     console.log(e.target.dataset.item);
   } else if (e.target.dataset.itemUuid) {
-    /*   buttonRemoveClicked(e.target.dataset.itemUuid); */
-    console.log(e.target.dataset.itemUuid);
+    buttonRemoveClicked(e.target.dataset.itemUuid);
+    /*     console.log(e.target.dataset.itemUuid); */
   }
 });
 
 let arrayOrder = [];
+console.log(arrayOrder);
+
 function getItemId(itemId) {
   for (let item of menuArray) {
     if (item.id === Number(itemId)) {
@@ -40,7 +42,6 @@ function sumOrderPrice(itemId) {
   for (let item of arrayOrder) {
     if (arrayOrder.id === itemId) {
       total += item.price;
-      /*  console.log(item.price, item.id); */
     }
   }
 
@@ -48,14 +49,28 @@ function sumOrderPrice(itemId) {
   return total;
 }
 
-function subtractOrderPrice() {}
+function buttonRemoveClicked(itemUuid) {
+  let deleted = document.getElementById("div-order-p");
+  let subtract = 0;
+  let totalPrice = sumOrderPrice();
+
+  for (let item of arrayOrder) {
+    if (itemUuid === item.uuid) {
+      subtract = totalPrice - item.price;
+    }
+
+    deleted.innerHTML = "";
+  }
+
+  return subtract;
+}
 
 /* To Refactor */
 function getOrderItems() {
   let order = "";
   let orderAdded = "";
   let totalPrice = sumOrderPrice();
-  console.log(totalPrice);
+  /* let subtractTotalPrice = buttonRemoveClicked(); */
 
   if (arrayOrder.length === 1) {
     arrayOrder.forEach(function (item) {
@@ -64,8 +79,8 @@ function getOrderItems() {
       <h2>Your order</h2>
   
   
-        <div class="div-order-p">
-            <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
+        <div class="div-order-p" id="div-order-p">
+            <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
             <div class="item">$${item.price}</div>
         </div>
   
@@ -82,7 +97,7 @@ function getOrderItems() {
     });
   } else {
     arrayOrder.forEach(function (item) {
-      orderAdded += `<div class="div-order-p">
+      orderAdded += `<div class="div-order-p" id="div-order-p">
       <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
       <div class="item">$${item.price}</div>
   </div>`;
@@ -92,14 +107,8 @@ function getOrderItems() {
     <div class="main-menu menu-order" id="menu-order">
       <h2>Your order</h2>
            ${orderAdded}
-
-
            <img id="divider-order" src="images/divider.png"/>
-  
            <div class="div-order-p item"><p>Total price: </p><p class="div-order-p"> $${totalPrice}</p></div>
-       
-       
-       
            <button class="purchase-btn" id="purchase-btn">Complete Order</button>
          </div>
 
