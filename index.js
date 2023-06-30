@@ -50,6 +50,7 @@ function sumOrderPrice(itemId) {
 }
 
 function buttonRemoveClicked(itemUuid) {
+  /* TO DO  */
   let deleted = document.getElementById("div-order-p");
   let subtract = 0;
   let totalPrice = sumOrderPrice();
@@ -58,11 +59,9 @@ function buttonRemoveClicked(itemUuid) {
     if (itemUuid === item.uuid) {
       subtract = totalPrice - item.price;
     }
-
-    deleted.innerHTML = "";
   }
-
-  return subtract;
+  render();
+  return;
 }
 
 /* To Refactor */
@@ -72,41 +71,21 @@ function getOrderItems() {
   let totalPrice = sumOrderPrice();
   /* let subtractTotalPrice = buttonRemoveClicked(); */
 
-  if (arrayOrder.length === 1) {
-    arrayOrder.forEach(function (item) {
-      order += `<section class="order-section" id="order-section">
-    <div class="main-menu menu-order" id="menu-order">
-      <h2>Your order</h2>
-  
-  
-        <div class="div-order-p" id="div-order-p">
-            <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
-            <div class="item">$${item.price}</div>
-        </div>
-  
-  
-        <img id="divider-order" src="images/divider.png"/>
-  
-      <div class="div-order-p item" id="total"><p>Total price:</p><p class="div-order-p">$${totalPrice}</p></div>
-  
-  
-  
-      <button class="purchase-btn" id="purchase-btn">Complete Order</button>
-    </div>
-    </section>`;
-    });
-  } else {
-    arrayOrder.forEach(function (item) {
-      orderAdded += `<div class="div-order-p" id="div-order-p">
-      <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
+  arrayOrder.forEach(function (item) {
+    orderAdded += `
+      <div class="div-order-p" id="div-order-p">
+      <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
       <div class="item">$${item.price}</div>
-  </div>`;
-    });
+      </div>
+  `;
+  });
 
-    order += `<section class="order-section" id="order-section">
+  order += `<section class="order-section" id="order-section">
     <div class="main-menu menu-order" id="menu-order">
       <h2>Your order</h2>
+      
            ${orderAdded}
+        
            <img id="divider-order" src="images/divider.png"/>
            <div class="div-order-p item"><p>Total price: </p><p class="div-order-p"> $${totalPrice}</p></div>
            <button class="purchase-btn" id="purchase-btn">Complete Order</button>
@@ -116,8 +95,7 @@ function getOrderItems() {
   
        
     </section>`;
-    /*   console.log(orderAdded); */
-  }
+
   document.getElementById("order-section").innerHTML = order;
   render();
   return order;
