@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 document.addEventListener("click", function (e) {
   if (e.target.dataset.item) {
     getItemId(e.target.dataset.item);
+    sumOrderPrice(e.target.dataset.itemId);
+
     console.log(e.target.dataset.item);
   } else if (e.target.dataset.itemUuid) {
     /*   buttonRemoveClicked(e.target.dataset.itemUuid); */
@@ -16,7 +18,6 @@ document.addEventListener("click", function (e) {
   }
 });
 
-/* TO DO: Create UUID for each item in order list */
 let arrayOrder = [];
 function getItemId(itemId) {
   for (let item of menuArray) {
@@ -33,7 +34,21 @@ function getItemId(itemId) {
   return console.log(arrayOrder);
 }
 
-function sumOrderItems() {}
+/* Rename to sumOrderTotal */
+function sumOrderPrice(itemId) {
+  let total = 0;
+  for (let item of arrayOrder) {
+    if (item) {
+      total += item.price;
+      console.log(item.price, item.id);
+    }
+  }
+
+  console.log(sum);
+  return sum;
+}
+
+function subtractOrderPrice() {}
 
 /* To Refactor */
 function getOrderItems() {
@@ -55,7 +70,7 @@ function getOrderItems() {
   
         <img id="divider-order" src="images/divider.png"/>
   
-      <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
+      <div class="div-order-p item" id="total"><p>Total price:</p><p class="div-order-p">Price</p></div>
   
   
   
@@ -122,7 +137,7 @@ function getMenuElement() {
           />
 
           <ul class="list" id="list">
-            <li class="item" id="item">${item.name}</li>
+            <li class="item" id="item" data-item-uuid="${item.uuid}">${item.name}</li>
             <li class="ingredients" id="ingredients">${menuIngredients}</li>
             <li class="price" id="price">${item.price}</li>
           </ul>
