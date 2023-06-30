@@ -38,14 +38,14 @@ function getItemId(itemId) {
 function sumOrderPrice(itemId) {
   let total = 0;
   for (let item of arrayOrder) {
-    if (item) {
+    if (arrayOrder.id === itemId) {
       total += item.price;
-      console.log(item.price, item.id);
+      /*  console.log(item.price, item.id); */
     }
   }
 
-  console.log(sum);
-  return sum;
+  console.log(total);
+  return total;
 }
 
 function subtractOrderPrice() {}
@@ -54,6 +54,8 @@ function subtractOrderPrice() {}
 function getOrderItems() {
   let order = "";
   let orderAdded = "";
+  let totalPrice = sumOrderPrice();
+  console.log(totalPrice);
 
   if (arrayOrder.length === 1) {
     arrayOrder.forEach(function (item) {
@@ -64,13 +66,13 @@ function getOrderItems() {
   
         <div class="div-order-p">
             <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
-            <div class="item">${item.price}</div>
+            <div class="item">$${item.price}</div>
         </div>
   
   
         <img id="divider-order" src="images/divider.png"/>
   
-      <div class="div-order-p item" id="total"><p>Total price:</p><p class="div-order-p">Price</p></div>
+      <div class="div-order-p item" id="total"><p>Total price:</p><p class="div-order-p">$${totalPrice}</p></div>
   
   
   
@@ -82,7 +84,7 @@ function getOrderItems() {
     arrayOrder.forEach(function (item) {
       orderAdded += `<div class="div-order-p">
       <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
-      <div class="item">${item.price}</div>
+      <div class="item">$${item.price}</div>
   </div>`;
     });
 
@@ -94,7 +96,7 @@ function getOrderItems() {
 
            <img id="divider-order" src="images/divider.png"/>
   
-           <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
+           <div class="div-order-p item"><p>Total price: </p><p class="div-order-p"> $${totalPrice}</p></div>
        
        
        
@@ -105,7 +107,7 @@ function getOrderItems() {
   
        
     </section>`;
-    console.log(orderAdded);
+    /*   console.log(orderAdded); */
   }
   document.getElementById("order-section").innerHTML = order;
   render();
@@ -139,7 +141,7 @@ function getMenuElement() {
           <ul class="list" id="list">
             <li class="item" id="item" data-item-uuid="${item.uuid}">${item.name}</li>
             <li class="ingredients" id="ingredients">${menuIngredients}</li>
-            <li class="price" id="price">${item.price}</li>
+            <li class="price" id="price">$${item.price}</li>
           </ul>
         </div>
       
