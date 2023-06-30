@@ -1,9 +1,10 @@
 // @ts-nocheck
 // @ts-ignore
 /* import func from "joi/lib/types/func"; */
-import { menuArray } from "/data.js";
 /* <a href='https://dryicons.com/icon/plus-icon-12631'> Icon by Dryicons </a> */
-/* console.log(menuArray) */
+
+import { menuArray } from "/data.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.item) {
@@ -11,11 +12,17 @@ document.addEventListener("click", function (e) {
   }
 });
 
+/* TO DO: Create UUID for each item in order list */
 let arrayOrder = [];
 function getItemId(itemId) {
   for (let item of menuArray) {
     if (item.id === Number(itemId)) {
-      arrayOrder.push({ name: item.name, price: item.price, id: item.id });
+      arrayOrder.push({
+        name: item.name,
+        price: item.price,
+        id: item.id,
+        uuid: uuidv4(),
+      });
     }
   }
   getOrderItems(arrayOrder);
@@ -37,7 +44,7 @@ function getOrderItems() {
   
   
         <div class="div-order-p">
-            <div class="item" >${item.name}<button class="remove-btn" id="remove-btn">remove</button></div> 
+            <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
             <div class="item">${item.price}</div>
         </div>
   
@@ -55,7 +62,7 @@ function getOrderItems() {
   } else {
     arrayOrder.forEach(function (item) {
       orderAdded += `<div class="div-order-p">
-      <div class="item" >${item.name}<button class="remove-btn" id="remove-btn">remove</button></div> 
+      <div class="item" data-item-uuid="${item.uuid}">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
       <div class="item">${item.price}</div>
   </div>`;
     });
@@ -63,23 +70,21 @@ function getOrderItems() {
     order += `<section class="order-section" id="order-section">
     <div class="main-menu menu-order" id="menu-order">
       <h2>Your order</h2>
-  
-      
-       
            ${orderAdded}
-         
 
-      
+
+           <img id="divider-order" src="images/divider.png"/>
+  
+           <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
+       
+       
+       
+           <button class="purchase-btn" id="purchase-btn">Complete Order</button>
+         </div>
+
       </div>
   
-        <img id="divider-order" src="images/divider.png"/>
-  
-      <div class="div-order-p item"><p>Total price:</p><p class="div-order-p">Price</p></div>
-  
-  
-  
-      <button class="purchase-btn" id="purchase-btn">Complete Order</button>
-    </div>
+       
     </section>`;
     console.log(orderAdded);
   }
