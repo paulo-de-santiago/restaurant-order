@@ -9,6 +9,10 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 document.addEventListener("click", function (e) {
   if (e.target.dataset.item) {
     getItemId(e.target.dataset.item);
+    console.log(e.target.dataset.item);
+  } else if (e.target.dataset.itemUuid) {
+    /*   buttonRemoveClicked(e.target.dataset.itemUuid); */
+    console.log(e.target.dataset.itemUuid);
   }
 });
 
