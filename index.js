@@ -54,12 +54,10 @@ function sumOrderPrice(itemId) {
 function buttonRemoveClicked(itemUuid) {
   /* TO DO  */
   const deleted = document.getElementById("div-order-p");
-  const totalSum = sumOrderPrice();
-  let totalSubtract = 0;
 
   arrayOrder.forEach(function (item, index) {
     if (itemUuid === item.uuid) {
-      totalSubtract = totalSum - item.price;
+      /*   totalSubtract = totalSum - item.price; */
       /* item.order = false; */
       arrayOrder.splice(index, 1);
     }
@@ -82,27 +80,17 @@ function getOrderItems() {
   let order = "";
   let orderAdded = "";
   let totalPriceSum = sumOrderPrice();
-  console.log(totalPriceSum);
-  console.log(arrayOrder.length);
 
-  arrayOrder.forEach(function (item) {
-    console.log(arrayOrder.length);
-    if (totalPriceSum > 0) {
+  if (totalPriceSum > 0) {
+    arrayOrder.forEach(function (item) {
       orderAdded += `
         <div class="div-order-p" id="div-order-p">
         <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
         <div class="item">$${item.price}</div>
         </div>
     `;
-    }
-  });
-  /* TO DO  */
-  /*   if (totalPriceSum < 1) {
-    order = "";
-    render();
-    return;
-  } */
-
+    });
+  }
   order += `<section class="order-section" id="order-section">
     <div class="main-menu menu-order" id="menu-order">
       <h2>Your order</h2>
@@ -121,6 +109,12 @@ function getOrderItems() {
 
   document.getElementById("order-section").innerHTML = order;
   render();
+
+  if (totalPriceSum === 0) {
+    document.getElementById("order-section").innerHTML = "";
+    render();
+  }
+
   return order;
 }
 
