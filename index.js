@@ -11,7 +11,7 @@ document.addEventListener("click", function (e) {
     getItemId(e.target.dataset.item);
     sumOrderPrice(e.target.dataset.itemId);
 
-    console.log(e.target.dataset.item);
+    /*    console.log(e.target.dataset.item); */
   } else if (e.target.dataset.itemUuid) {
     buttonRemoveClicked(e.target.dataset.itemUuid);
     console.log(e.target.dataset.itemUuid);
@@ -22,6 +22,7 @@ document.addEventListener("click", function (e) {
 
 /* console.log(arrayOrder); */
 let arrayOrder = [];
+console.log(arrayOrder.length);
 function getItemId(itemId) {
   for (let item of menuArray) {
     if (item.id === Number(itemId)) {
@@ -56,16 +57,16 @@ function buttonRemoveClicked(itemUuid) {
   const totalSum = sumOrderPrice();
   let totalSubtract = 0;
 
-  for (let item of arrayOrder) {
+  arrayOrder.forEach(function (item, index) {
     if (itemUuid === item.uuid) {
       totalSubtract = totalSum - item.price;
-      item.order = false;
-      /*       console.log(subtractTotal, item.order); */
+      /* item.order = false; */
+      arrayOrder.splice(index, 1);
     }
-  }
+  });
   deleted.innerHTML = "";
+
   getOrderItems();
-  /*  console.log(subtractTotal, arrayOrder); */
 
   return totalSubtract;
 }
@@ -91,9 +92,9 @@ function getOrderItems() {
         <div class="item">$${item.price}</div>
         </div>
     `;
-    } else if (arrayOrder[index].order === false && arrayOrder.length > 0) {
-      console.log("removed");
-    }
+    } /* else if (arrayOrder[index].order === false && arrayOrder.length > 0) {
+      console.log("removed", arrayOrder.length);
+    } */
   });
 
   order += `<section class="order-section" id="order-section">
