@@ -14,13 +14,14 @@ document.addEventListener("click", function (e) {
     console.log(e.target.dataset.item);
   } else if (e.target.dataset.itemUuid) {
     buttonRemoveClicked(e.target.dataset.itemUuid);
-    /*     console.log(e.target.dataset.itemUuid); */
+    console.log(e.target.dataset.itemUuid);
+  } else if (e.target.id === "purchase-btn") {
+    completeOrderForm();
   }
 });
 
+/* console.log(arrayOrder); */
 let arrayOrder = [];
-console.log(arrayOrder);
-
 function getItemId(itemId) {
   for (let item of menuArray) {
     if (item.id === Number(itemId)) {
@@ -28,12 +29,13 @@ function getItemId(itemId) {
         name: item.name,
         price: item.price,
         id: item.id,
+        order: true,
         uuid: uuidv4(),
       });
     }
   }
-  getOrderItems(arrayOrder);
-  return console.log(arrayOrder);
+  getOrderItems();
+  return arrayOrder;
 }
 
 /* Rename to sumOrderTotal */
@@ -45,39 +47,53 @@ function sumOrderPrice(itemId) {
     }
   }
 
-  console.log(total);
   return total;
 }
 
 function buttonRemoveClicked(itemUuid) {
   /* TO DO  */
-  let deleted = document.getElementById("div-order-p");
-  let subtract = 0;
-  let totalPrice = sumOrderPrice();
+  const deleted = document.getElementById("div-order-p");
+  const totalSum = sumOrderPrice();
+  let totalSubtract = 0;
 
   for (let item of arrayOrder) {
     if (itemUuid === item.uuid) {
-      subtract = totalPrice - item.price;
+      totalSubtract = totalSum - item.price;
+      item.order = false;
+      /*       console.log(subtractTotal, item.order); */
     }
   }
-  render();
-  return;
+  deleted.innerHTML = "";
+  getOrderItems();
+  /*  console.log(subtractTotal, arrayOrder); */
+
+  return totalSubtract;
+}
+
+function completeOrderForm() {
+  let ele = document.getElementById("form-hidden");
+  ele.classList.toggle("mystyle");
+  console.log("complete order");
 }
 
 /* To Refactor */
 function getOrderItems() {
   let order = "";
   let orderAdded = "";
-  let totalPrice = sumOrderPrice();
-  /* let subtractTotalPrice = buttonRemoveClicked(); */
+  let totalPriceSum = sumOrderPrice();
 
-  arrayOrder.forEach(function (item) {
-    orderAdded += `
-      <div class="div-order-p" id="div-order-p">
-      <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
-      <div class="item">$${item.price}</div>
-      </div>
-  `;
+  arrayOrder.forEach(function (item, index) {
+    if (arrayOrder[index].order === true) {
+      console.log(arrayOrder[index].order);
+      orderAdded += `
+        <div class="div-order-p" id="div-order-p">
+        <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
+        <div class="item">$${item.price}</div>
+        </div>
+    `;
+    } else if (arrayOrder[index].order === false && arrayOrder.length > 0) {
+      console.log("removed");
+    }
   });
 
   order += `<section class="order-section" id="order-section">
@@ -87,7 +103,7 @@ function getOrderItems() {
            ${orderAdded}
         
            <img id="divider-order" src="images/divider.png"/>
-           <div class="div-order-p item"><p>Total price: </p><p class="div-order-p"> $${totalPrice}</p></div>
+           <div class="div-order-p item"><p>Total price: </p><p class="div-order-p"> $${totalPriceSum}</p></div>
            <button class="purchase-btn" id="purchase-btn">Complete Order</button>
          </div>
 
