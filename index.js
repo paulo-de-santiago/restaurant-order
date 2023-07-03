@@ -17,6 +17,8 @@ document.addEventListener("click", function (e) {
     console.log(e.target.dataset.itemUuid);
   } else if (e.target.id === "purchase-btn") {
     completeOrderForm();
+  } else if (e.target.id === "pay-btn") {
+    paymentThanks();
   }
 });
 
@@ -159,6 +161,18 @@ function getMenuElement() {
 
   return menuItems;
 }
+
+/* function paymentThanks(event) {
+  event.preventDefault();
+  const payForm = new FormData(formPay);
+  const fullName = payForm.get("name");
+
+  document.getElementById("last-page").innerHTML = `
+    <h2>Thanks>${fullName}</span> for buying with us! </h2>
+  `;
+
+  console.log("done");
+} */
 
 function render() {
   document.getElementById("main-menu").innerHTML = getMenuElement();
