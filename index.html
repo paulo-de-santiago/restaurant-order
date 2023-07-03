@@ -30,7 +30,7 @@
         </header>
       </div>
       <div class="main-menu" id="main-menu">
-<!--         <div class="menu-list" id="menu-list">
+        <!--         <div class="menu-list" id="menu-list">
           <div class="menu-item" id="menu-item">
             <img
               class="img-layout"
@@ -50,11 +50,11 @@
         </div>
         <img src="images/divider.png" />
       </div> -->
-    </div>
+      </div>
 
-    <!-- Order Section -->
-    <section class="order-section" id="order-section">
-     <!--  <div class="main-menu menu-order" id="menu-order">
+      <!-- Order Section -->
+      <section class="order-section" id="order-section">
+        <!--  <div class="main-menu menu-order" id="menu-order">
         <h2>Your order</h2>
           <div class="div-order-p">
               <div class="item">Pizza<button class="remove-btn" id="remove-btn">remove</button></div> 
@@ -71,13 +71,35 @@
 
         <button class="purchase-btn" id="purchase-btn">Complete Order</button>
       </div> -->
+      </section>
+      <div class="modal-pay" id="modal-pay">
+      <div class="div-form" id="div-form">
+        <h2>Enter card details</h2>
+        <form>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            required
+          />
 
-    </section>
-    <div class="hidden" id="form-hidden">
+          <input
+            type="number"
+            id="card-number"
+            name="card-number"
+            placeholder="Enter card number"
+            required
+          />
 
-  </div>  
-      
-        
+          <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" />
+          <button type="submit" value="submit" class="purchase-btn pay-btn">
+            Pay
+          </button>
+        </form>
+      </div>
+    </div>
+
     <script src="index.js" type="module"></script>
   </body>
 </html>

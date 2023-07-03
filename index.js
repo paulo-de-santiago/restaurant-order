@@ -70,8 +70,8 @@ function buttonRemoveClicked(itemUuid) {
 }
 
 function completeOrderForm() {
-  let ele = document.getElementById("form-hidden");
-  ele.classList.toggle("mystyle");
+  let form = document.getElementById("modal-pay");
+  form.style.display = "block";
   console.log("complete order");
 }
 

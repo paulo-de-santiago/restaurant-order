@@ -18,7 +18,7 @@ html, body {
   flex-direction: column;
 /*     justify-content: center;  */
 /*   align-items: center;  */
-    margin: 0 auto;
+    margin: auto;
 /*   margin: 120px 120px; */
 
 
@@ -242,17 +242,54 @@ html, body {
 
 
 /* Form */
-.hidden {
 
-   display: flex;
-    
+.modal-pay {
+/* display block */
+    display: none;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 420px;
+    width: 350px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 2px #666;
+    background-color: #212529;
+    color: whitesmoke;
 }
 
-.mystyle {
-    width: 100%;
-    padding: 25px;
-    background-color: coral;
+.form-pay-show {
+    position: fixed;
+
+}
+
+.myform {
+    display: block;
+
+  
+    top: 0; 
+    right:0; 
+    bottom: 0; 
+    left:0;
+    margin: auto;
+  
+
+
+ 
+
+/*     background-color: coral; */
     color: white;
     font-size: 25px;
     box-sizing: border-box;
   }
+
+  .purchase-btn .pay-btn {
+    /* Layout */
+    width: 475.911px;
+    height: 71.304px;
+
+
+  }
+
