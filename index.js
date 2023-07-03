@@ -82,20 +82,26 @@ function getOrderItems() {
   let order = "";
   let orderAdded = "";
   let totalPriceSum = sumOrderPrice();
+  console.log(totalPriceSum);
+  console.log(arrayOrder.length);
 
-  arrayOrder.forEach(function (item, index) {
-    if (arrayOrder[index].order === true) {
-      console.log(arrayOrder[index].order);
+  arrayOrder.forEach(function (item) {
+    console.log(arrayOrder.length);
+    if (totalPriceSum > 0) {
       orderAdded += `
         <div class="div-order-p" id="div-order-p">
         <div class="item">${item.name}<button class="remove-btn" id="remove-btn" data-item-uuid="${item.uuid}">remove</button></div> 
         <div class="item">$${item.price}</div>
         </div>
     `;
-    } /* else if (arrayOrder[index].order === false && arrayOrder.length > 0) {
-      console.log("removed", arrayOrder.length);
-    } */
+    }
   });
+  /* TO DO  */
+  /*   if (totalPriceSum < 1) {
+    order = "";
+    render();
+    return;
+  } */
 
   order += `<section class="order-section" id="order-section">
     <div class="main-menu menu-order" id="menu-order">
