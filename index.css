@@ -256,11 +256,12 @@ html, body {
     width: 524px;
     height: 542.24px;
     /* Style */
-    border-radius: 3.89px;
+    border-radius: 10px;
     background: #FFF;
 
    /*  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px; */
    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+
   
 }
 
@@ -279,6 +280,7 @@ html, body {
     font-style: normal;
     font-weight: 700;
     line-height: 31.119px;
+    padding: 20px;
 }
 
   
@@ -305,3 +307,53 @@ html, body {
 
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+  }
+
+  input {
+    /* Layout */
+    width: 475.911px;
+    height: 71.304px;
+        /* width: 100%; */
+        padding: 10px 15px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    /* Style */
+    border-radius: 3.89px;  
+   /*  border: 1.297px solid #757575; */
+   border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+
+    /* Typography */
+
+    color: #757575;
+    font-size: 20px;
+    font-family: Verdana;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31.119px;
+    border: 1.5px;
+
+
+  }
+input:focus,
+input:hover
+ {
+
+border-radius: 3.89px;
+border: 1.297px solid #757575;
+    
+}
+
+  .form-pay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
