@@ -260,35 +260,33 @@ html, body {
     color: whitesmoke;
 }
 
-.form-pay-show {
-    position: fixed;
+.div-form-pay {
+    width: 290px;
+    margin: 0 auto;
+
 
 }
 
-.myform {
-    display: block;
-
   
-    top: 0; 
-    right:0; 
-    bottom: 0; 
-    left:0;
-    margin: auto;
-  
-
-
- 
-
-/*     background-color: coral; */
-    color: white;
-    font-size: 25px;
-    box-sizing: border-box;
-  }
-
-  .purchase-btn .pay-btn {
+ .pay-btn {
     /* Layout */
-    width: 475.911px;
-    height: 71.304px;
+    /* Typograhy */
+    color: var(--white, #FFF);
+    font-size: 16px;
+    font-family: Verdana;
+    font-weight: 700;
+    line-height: 24px;
+    /* Layout */
+    border: none;
+    
+    padding: 15px;
+
+    /* Style */
+    border-radius: 3px;
+    background: #16DB99;
+
+    /* shadow/sm */
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
 
 
   }

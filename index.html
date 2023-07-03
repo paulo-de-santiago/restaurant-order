@@ -73,30 +73,37 @@
       </div> -->
       </section>
       <div class="modal-pay" id="modal-pay">
-      <div class="div-form" id="div-form">
-        <h2>Enter card details</h2>
-        <form>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Enter your name"
-            required
-          />
+      <div class="div-form-pay" id="div-form-pay">
+        
+          <h2>Enter card details</h2>
+          <form>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+  
+            <input
+              type="number"
+              id="card-number"
+              name="card-number"
+              placeholder="Enter card number"
+              required
+            />
+  
+            <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" />
+            <div>
+            <button type="submit" value="submit" class="pay-btn" id="pay-btn">
+              Pay
+            </button>
+            </div>
+          </form>
 
-          <input
-            type="number"
-            id="card-number"
-            name="card-number"
-            placeholder="Enter card number"
-            required
-          />
 
-          <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" />
-          <button type="submit" value="submit" class="purchase-btn pay-btn">
-            Pay
-          </button>
-        </form>
+    
+
       </div>
     </div>
 
